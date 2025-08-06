@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Fiesta de Cumpleaños de KHALESI!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Permanent+Marker&display=swap');
+
+        :root {
+            --primary: #3a6073;
+            --secondary: #16222a;
+            --accent: #f7c548;
+            --light: #f8f9fa;
+            --dragon-red: #e63946;
+            --dragon-purple: #9c27b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #hell-background {
+            position: relative;
+            /* Espacio para el footer */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Efecto de fuego de dragón mejorado */
+        .fire-overlay {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(transparent, rgba(230, 57, 70, 0.5), rgba(156, 39, 176, 0.3));
+            z-index: -1;
+            animation: fireFlicker 1.5s infinite alternate;
+            mask-image: linear-gradient(to top, transparent 0%, black 50%);
+        }
+
+        @keyframes fireFlicker {
+
+            0%,
+            100% {
+                opacity: 0.8;
+                height: 150px;
+            }
+
+            50% {
+                opacity: 1;
+                height: 180px;
+            }
+        }
+
+        /* Estilo del encabezado mejorado */
+        header {
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3.5rem;
+            color: var(--accent);
+            text-shadow: 3px 3px 0 var(--dragon-red),
+                5px 5px 0 var(--dragon-purple),
+                8px 8px 0 rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            transform: rotate(-3deg);
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            border-radius: 50%;
+            filter: blur(1px);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(-3deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(-3deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(-3deg);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--light);
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+
+        .birthday-name {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3rem;
+            color: var(--dragon-red);
+            text-shadow: 2px 2px 0 var(--accent), 4px 4px 0 rgba(0, 0, 0, 0.2);
+            margin: 10px 0 30px;
+            animation: nameGlow 2s infinite alternate;
+        }
+
+        @keyframes nameGlow {
+            from {
+                text-shadow: 2px 2px 0 var(--accent), 4px 4px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            to {
+                text-shadow: 2px 2px 10px var(--accent), 4px 4px 5px rgba(0, 0, 0, 0.3), 0 0 20px var(--dragon-red);
+            }
+        }
+
+        /* Dragones posicionados absolutamente */
+        .dragon-placeholder {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .dragon-placeholder img {
+            width: 100%;
+            height: 100%;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .dragon-chimuelo {
+            left: -140px;
+            top: 196px;
+            width: 370px;
+            height: 210px;
+        }
+
+        .dragon-astrid {
+            left: 150px;
+            top: 100px;
+            width: 550px;
+            height: 300px;
+        }
+
+        .dragon-mini {
+            left: 228px;
+            bottom: 0px;
+            width: 120px;
+            height: 120px;
+            z-index: 999;
+        }
+
+        /* Sección central con foto */
+        .main-content {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .birthday-girl {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 5px solid var(--accent);
+            box-shadow: 0 0 30px var(--dragon-purple);
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            animation: glow 2s infinite alternate;
+            transition: all 0.3s ease;
+        }
+
+        .birthday-girl:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 20px var(--dragon-red);
+            }
+
+            to {
+                box-shadow: 0 0 40px var(--accent);
+            }
+        }
+
+        .birthday-girl img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .birthday-info {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid var(--accent);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .birthday-info::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(247, 197, 72, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .birthday-info h2 {
+            font-family: 'Permanent Marker', cursive;
+            color: var(--accent);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .birthday-info p {
+            font-size: 1.3rem;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.4rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .highlight::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--dragon-red);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .birthday-info:hover .highlight::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Botones mejorados con iconos */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 220px;
+            justify-content: center;
+        }
+
+        .btn i {
+            font-size: 1.3rem;
+        }
+
+        .btn-primary {
+            background-color: var(--dragon-red);
+            color: white;
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent);
+            color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(247, 197, 72, 0.6);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Footer fijo en la parte inferior */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(247, 197, 72, 0.3);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(247, 197, 72, 0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: 100% 100%;
+            z-index: -1;
+        }
+
+        footer p:first-child {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        /* Partículas mágicas */
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(1px);
+            z-index: -1;
+            animation: floatParticle 15s linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(calc(var(--move-x) * 100px));
+                opacity: 0;
+            }
+        }
+
+        /* Mejoras para mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+                text-shadow: 2px 2px 0 var(--dragon-red),
+                    4px 4px 0 var(--dragon-purple),
+                    6px 6px 0 rgba(0, 0, 0, 0.3);
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .birthday-name {
+                font-size: 2.5rem;
+            }
+
+            .dragon-chimuelo {
+                left: -140px;
+                top: 196px;
+                width: 370px;
+                height: 210px;
+            }
+
+            .dragon-astrid {
+                left: 164px;
+                top: 226px;
+                width: 330px;
+                height: 200px;
+            }
+
+            .dragon-mini {
+                left: 228px;
+                bottom: 0px;
+                width: 120px;
+                height: 120px;
+            }
+
+            .birthday-girl {
+                height: 320px;
+                max-width: 320px;
+                margin-top: 20px;
+            }
+
+            .birthday-info {
+                padding: 20px 15px;
+            }
+
+            .birthday-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .birthday-info p {
+                font-size: 1.1rem;
+            }
+
+            .highlight {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 1.1rem;
+                min-width: auto;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            footer {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .birthday-name {
+                font-size: 2rem;
+            }
+
+            .dragon-chimuelo {
+                left: -140px;
+                top: 196px;
+                width: 370px;
+                height: 210px;
+            }
+
+            .dragon-astrid {
+                left: 164px;
+                top: 226px;
+                width: 330px;
+                height: 200px;
+            }
+
+            .dragon-mini {
+                left: 228px;
+                bottom: 0px;
+                width: 120px;
+                height: 120px;
+            }
+
+            .birthday-girl {
+                height: 280px;
+                max-width: 280px;
+            }
+
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hell-background">
+        <div class="fire-overlay"></div>
+
+        <header>
+            <h1>¡Vikingos al Ataque!</h1>
+            <p class="subtitle">Invitación Especial para Celebrar a</p>
+            <div class="birthday-name">KHALESI TAPIA</div>
+        </header>
+
+        <div class="main-content">
+            <div class="dragon-placeholder dragon-astrid">
+                <img src="src/astrid.png" alt="Astrid">
+            </div>
+
+            <div class="birthday-girl">
+                <img src="src/kali.jpg" alt="Khalesi">
+            </div>
+
+            <div class="birthday-info">
+                <h2>¡Únete a la Aventura!</h2>
+                <p>Te invitamos a celebrar el <span class="highlight">5to cumpleaños</span> de</p>
+                <p><span class="highlight">KHALESI TAPIA VARGAS</span></p>
+
+                <p><span class="highlight">Fecha:</span> Viernes, 8 de Agosto</p>
+                <p><span class="highlight">Hora:</span> 15:00</p>
+                <p><span class="highlight">Lugar:</span> B/Jardin Valparaiso Calle Laureles #6</p>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn btn-primary" id="locationBtn">
+                <i class="fas fa-map-marker-alt"></i> Ver Ubicación
+            </button>
+        </div>
+
+        <div class="dragon-placeholder dragon-chimuelo">
+            <img src="src/chimuelo1.png" alt="Chimuelo" class="overlive">
+        </div>
+
+        <div class="dragon-placeholder dragon-mini">
+            <img src="src/pngegg(4).png" alt="Chimuelo">
+        </div>
+    </div>
+
+    <footer>
+        <p>¡No olvides tu espíritu vikingo! Habrá juegos, sorpresas y mucha diversión.</p>
+        <p>© 2025 - Cumpleaños de Khalesi</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Botón de ubicación corregido
+            const locationBtn = document.getElementById('locationBtn');
+            locationBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirigiendo...';
+                this.style.backgroundColor = '#c1121f';
+
+                setTimeout(() => {
+                    window.open('https://maps.app.goo.gl/oYj1Zk68jTqLmzSF7', '_blank');
+                    this.innerHTML = '<i class="fas fa-map-marker-alt"></i> Ver Ubicación';
+                    this.style.backgroundColor = '';
+                }, 800);
+            });
+
+            // Crear partículas mágicas
+            function createParticles() {
+                const colors = ['#f7c548', '#e63946', '#9c27b0', '#3a86ff', '#ffffff'];
+
+                for (let i = 0; i < 25; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+
+                    // Posición y tamaño aleatorios
+                    particle.style.left = Math.random() * 100 + 'vw';
+                    particle.style.top = Math.random() * 100 + 'vh';
+                    const size = Math.random() * 8 + 3;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+
+                    // Color y movimiento aleatorio
+                    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.setProperty('--move-x', (Math.random() > 0.5 ? '-' : '') + Math.random().toFixed(2));
+                    particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                    particle.style.animationDelay = (Math.random() * 5) + 's';
+
+                    document.body.appendChild(particle);
+                }
+            }
+
+            createParticles();
+
+            // Efecto parallax para dragones
+            const dragons = document.querySelectorAll('.dragon-placeholder');
+            window.addEventListener('mousemove', (e) => {
+                const x = e.clientX / window.innerWidth - 0.5;
+                const y = e.clientY / window.innerHeight - 0.5;
+
+                dragons.forEach((dragon, index) => {
+                    const offsetX = x * 20 * (index % 2 === 0 ? 1 : -1);
+                    const offsetY = y * 10;
+                    dragon.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+                });
+            });
+
+            // Efecto de chispas al hacer clic
+            document.addEventListener('click', function (e) {
+                const spark = document.createElement('div');
+                spark.className = 'spark';
+                spark.style.left = e.clientX + 'px';
+                spark.style.top = e.clientY + 'px';
+                document.body.appendChild(spark);
+
+                setTimeout(() => {
+                    spark.remove();
+                }, 1000);
+            });
+        });
+    </script>
+
+    <style>
+        /* Efecto spark adicional */
+        .spark {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkAnim 1s ease-out forwards;
+            transform: translate(-50%, -50%);
+            filter: blur(1px);
+            z-index: 100;
+        }
+
+        @keyframes sparkAnim {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(3);
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+
+</html>
